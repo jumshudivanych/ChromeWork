@@ -10,7 +10,7 @@ public class App
     {
         //TODO добавить TimeControl
         //создание объекта
-        Runnable chromeDriver1 = new sandbox50572.ChromeDriver("ChromeDriver1", "https://sandbox50572.wordpress.com/");
+        Runnable chromeDriver1 = new sandbox50572.ChromeDriver("ChromeDriver1", "https://www.google.ru");
         //создание дочернего потока
         Thread thread2 = new Thread(chromeDriver1);
         //стартуем новыи поток
