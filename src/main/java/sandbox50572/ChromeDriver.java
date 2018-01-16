@@ -52,13 +52,13 @@ public class ChromeDriver implements Runnable {
             //инициализация генератора случаиных чисел
             Random random = new Random();
             //получение случайного числа
-            long a = random.nextInt(18);
+            long a = random.nextInt(30);
             //перевод в минуты
             a = a * 60000;
 
             //вывод количества проиденных циклов
             System.out.println(i);
-            System.out.println("Задержка равна " + a);
+            System.out.println("Задержка равна " + a / 60000);
 
             //задержка
             try {
