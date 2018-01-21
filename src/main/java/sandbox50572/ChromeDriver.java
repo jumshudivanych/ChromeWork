@@ -10,10 +10,14 @@ public class ChromeDriver implements Runnable {
     private static org.openqa.selenium.chrome.ChromeDriver driver;
     private static String url;//url загружаемои страницы
     private static String name;
+    private String login;
+    private String password;
 
     public ChromeDriver(String name, String url) {
         this.name = name;
         this.url = url;
+        this.login = login;
+        this.password = password;
     }
 
     public void run() {
@@ -32,17 +36,17 @@ public class ChromeDriver implements Runnable {
             //находим элемент поиск google
             WebElement googleSearch = driver.findElementById("lst-ib");
             //вводим поисковыи запрос
-            googleSearch.sendKeys("https://youtu.be/L2X4fAIo7vA");
+            googleSearch.sendKeys("https://www.youtube.com/watch?v=3N-B4wkXxYM");
             //находим и жмем
             WebElement search = driver.findElementByName("btnK");
             search.click();
             //находим элемент в поисковой выдаче
-            WebElement ritaYouTube = driver.findElementByLinkText("Мой - YouTube");                //жмем
+            WebElement ritaYouTube = driver.findElementByLinkText("Цветок в технике квиллинг - YouTube");                //жмем
             ritaYouTube.click();
 
             //TODO время задержки
             try {
-                Thread.sleep(450000);
+                Thread.sleep(250000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -52,7 +56,7 @@ public class ChromeDriver implements Runnable {
             //инициализация генератора случаиных чисел
             Random random = new Random();
             //получение случайного числа
-            long a = random.nextInt(30);
+            long a = random.nextInt(6);
             //перевод в минуты
             a = a * 60000;
 
