@@ -14,5 +14,12 @@ public class Coordinator implements Runnable {
         Thread threadNext = new Thread(chromeDriver1);
         //стартуем новыи поток
         threadNext.start();
+
+        //создание объекта для работы с базои данных sqlite
+        Runnable accounts = new AccountsSqlite();
+        //создание потока
+        Thread threadSqlite = new Thread(accounts);
+        //стартуем поток
+        threadSqlite.start();
     }
 }

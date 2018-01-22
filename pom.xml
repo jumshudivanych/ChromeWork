@@ -26,5 +26,11 @@
       <artifactId>selenium-chrome-driver</artifactId>
       <version>2.34.0</version>
     </dependency>
+    <!-- подключение JDBC -->
+    <dependency>
+      <groupId>org.xerial</groupId>
+      <artifactId>sqlite-jdbc</artifactId>
+      <version>3.8.11.1</version>
+    </dependency>
   </dependencies>
 </project>
