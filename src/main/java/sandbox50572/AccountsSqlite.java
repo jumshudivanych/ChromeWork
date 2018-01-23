@@ -27,7 +27,14 @@ public class AccountsSqlite implements Runnable {
             //создание sql запроса
             Statement stmt = connection.createStatement();
             stmt.execute("INSERT INTO 'users' ('name', 'url', 'login', 'password') VALUES ('ivan', 'google.ru', 'ivanlykov028@gmail.com', '1234cani');");//TODO тут sql запрос
-System.out.println("Запись добавлена");
+            System.out.println("Запись добавлена");
+
+           //добавление записи
+            stmt.execute("INSERT INTO 'users' ('name', 'url', 'login', 'password') VALUES ('ivan', 'google.ru', 'ivanlykov028@gmail.com', '1234cani');");
+            System.out.println("Запись добавлена");
+
+            //Удаление данных из таблицы
+            //stmt.execute("DELETE * FROM users");
 
         //считывание из таблицы
             ResultSet resSet = stmt.executeQuery("SELECT * FROM users");
@@ -46,9 +53,9 @@ System.out.println("Запись добавлена");
                 System.out.println("Таблица выведена");
 
                 //TODO !!! Добавить закрытие базы данных в отдельных методах
-                connection.close();
-                stmt.close();
-                resSet.close();
+                //connection.close();
+                //stmt.close();
+                //resSet.close();
 
                 System.out.println("Соединения закрыты");
             }

@@ -16,10 +16,10 @@ public class Coordinator implements Runnable {
         threadNext.start();
 
         //создание объекта для работы с базои данных sqlite
-        Runnable accounts = new AccountsSqlite();
+        //Runnable accounts = new AccountsSqlite();
         //создание потока
-        Thread threadSqlite = new Thread(accounts);
+        //Thread threadSqlite = new Thread(accounts);
         //стартуем поток
-        threadSqlite.start();
+        //threadSqlite.start();
     }
 }
