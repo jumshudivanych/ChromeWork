@@ -15,6 +15,20 @@ public class Coordinator implements Runnable {
         //стартуем новыи поток
         threadNext.start();
 
+        //Пауза между созданием потоков
+        try {
+            Thread.sleep(300000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //создаем поток с ChromeDriver
+        Runnable chromeDriver2 = new sandbox50572.ChromeDriver("ChromeDriver1", "https://www.google.ru");
+        //создание дочернего потока
+        Thread threadNext2 = new Thread(chromeDriver2);
+        //стартуем новыи поток
+        threadNext2.start();
+
         //создание объекта для работы с базои данных sqlite
         //Runnable accounts = new AccountsSqlite();
         //создание потока

@@ -12,17 +12,37 @@ public class ChromeDriver implements Runnable {
     private static String name;
     private String login;
     private String password;
+    public String findElement1;
+    public String findElement2;
+    public String resultString;
 
     public ChromeDriver(String name, String url) {
         this.name = name;
         this.url = url;
         this.login = login;
         this.password = password;
+        this.findElement1 = "Рисуем по клеточкам #1ДОМ - YouTube";
+        this.findElement2 = "Моя кухня - YouTube";
+        this.resultString = "empty";
     }
 
     public void run() {
 
         for(int i=0; i<1500; i++) {
+
+            //TODO Случайный выбор из найденных элементов
+            //инициализация генератора случаиных чисел
+            Random r = new Random();
+            //получение случайного числа
+            int n = r.nextInt(2);//случайный выбор из двух
+            if(n == 1) {
+                resultString = findElement2;
+                System.out.println("Кухня");
+            }
+            else {
+                resultString = findElement1;
+                System.out.println("Дом");
+            }
 
             //TODO ЗАПУСК Chrome
             System.setProperty("webdriver.chrome.driver","C:/idea/chromedriver.exe");
@@ -36,17 +56,17 @@ public class ChromeDriver implements Runnable {
             //находим элемент поиск google
             WebElement googleSearch = driver.findElementById("lst-ib");
             //вводим поисковыи запрос
-            googleSearch.sendKeys("https://www.youtube.com/watch?v=3N-B4wkXxYM");
+            googleSearch.sendKeys("Rita Lykova- YouTube");
             //находим и жмем
             WebElement search = driver.findElementByName("btnK");
             search.click();
             //находим элемент в поисковой выдаче
-            WebElement ritaYouTube = driver.findElementByLinkText("Цветок в технике квиллинг - YouTube");                //жмем
+            WebElement ritaYouTube = driver.findElementByLinkText(resultString);//жмем
             ritaYouTube.click();
 
             //TODO время задержки
             try {
-                Thread.sleep(250000);
+                Thread.sleep(260000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
